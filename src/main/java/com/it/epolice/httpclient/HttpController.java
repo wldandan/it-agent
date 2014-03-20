@@ -12,9 +12,9 @@ import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 public class HttpController {
 
     HttpClient client;
-    String server;
-    int port;
-    int count;
+    String server = "localhost";
+    int port = 8080;
+    int count = 1;
     boolean secureConnection;
     String rootContext;
 

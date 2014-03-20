@@ -19,8 +19,8 @@ public class FileApi {
             boolean moreData = content.available() > 0;
             header.put("hasMoreData", moreData ? "T" : "F");
 
-            HttpController http = new HttpController();
-            String restUri = "/fs/file/";
+            HttpController http = new HttpController("localhost", 8080, 1);
+            String restUri = "/it/file/";
             http.send(new Put(restUri + uri, header, bytes));
 //            if (response.getCode() != HttpStatus.SC_OK && response.getCode() != HttpStatus.SC_CREATED) {
 //                String message = RemoteHelpers.getResponseMsg(response);
@@ -45,6 +45,7 @@ public class FileApi {
 //                }
             }
         } catch (Exception e) {
+        	e.printStackTrace();
         } finally {
             content.close();
         }
