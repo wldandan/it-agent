@@ -1,12 +1,14 @@
 apply plugin: 'java'
+apply plugin: 'eclipse'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	run "commons-logging:commons-logging:1.1.1"
-	run "commons-codec:commons-codec:1.2"
+	compile "commons-logging:commons-logging:1.1.1"
+	compile "commons-codec:commons-codec:1.2"
 	compile "commons-httpclient:commons-httpclient:3.1"
-	run "log4j:log4j:1.2.17"
+	compile "log4j:log4j:1.2.17"
+	compile project(":it-utils")
 }
