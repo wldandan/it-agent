@@ -20,8 +20,8 @@ public class FileApi {
             header.put("hasMoreData", moreData ? "T" : "F");
 
             HttpController http = new HttpController("localhost", 8080, 1);
-            String restUri = "/it/file/";
-            http.send(new Put(restUri + uri, header, bytes));
+            String restUri = "/image/syncBinary";
+            http.send(new Put(restUri, header, bytes));
 //            if (response.getCode() != HttpStatus.SC_OK && response.getCode() != HttpStatus.SC_CREATED) {
 //                String message = RemoteHelpers.getResponseMsg(response);
 //                LocMsg msg = RemoteHelpers.getLocMsg(response);
