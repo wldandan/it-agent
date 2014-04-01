@@ -6,8 +6,14 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class FileApi {
+	@Value("${serverIp}")
 	private String serverIP;
+	@Value("${serverPort}")
 	private String serverPort;
 
     public void sendFile(String uri, String contentType, InputStream content) throws Exception {
