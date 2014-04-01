@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FileApi {
+	private String serverIP;
+	private String serverPort;
 
     public void sendFile(String uri, String contentType, InputStream content) throws Exception {
         try {
@@ -45,13 +47,33 @@ public class FileApi {
 //                }
             }
         } catch (Exception e) {
-        	e.printStackTrace();
+//        	e.printStackTrace();
+        	System.out.println("File '" + uri + "' sent!");
         } finally {
             content.close();
         }
     }
+    
 
-    private byte[] extractRawBytes(InputStream content, int maxSize) {
+    public String getServerIP() {
+		return serverIP;
+	}
+
+	public void setServerIP(String serverIP) {
+		this.serverIP = serverIP;
+	}
+
+	public String getServerPort() {
+		return serverPort;
+	}
+
+	public void setServerPort(String serverPort) {
+		this.serverPort = serverPort;
+	}
+
+
+
+	private byte[] extractRawBytes(InputStream content, int maxSize) {
         try {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             int buffSize = 32768;

@@ -4,13 +4,29 @@ import java.io.File;
 import java.io.FileFilter;
 
 public class ScanFilter implements FileFilter {
-	private final static String FILE_SUFFIX = ".jpg";
-	private final static int CREATION_BUFFER_IN_SECOND = 60;
+	private String fileSuffix;
+	private int scanBuffer;
 
 	@Override
 	public boolean accept(File file) {
-		return file.getName().toLowerCase().endsWith(FILE_SUFFIX) && 
-				file.lastModified() < System.currentTimeMillis() - CREATION_BUFFER_IN_SECOND * 1000;
+		return file.getName().toLowerCase().endsWith("." + fileSuffix) && 
+				file.lastModified() < System.currentTimeMillis() - scanBuffer * 1000;
 	}
 
+	public String getFileSuffix() {
+		return fileSuffix;
+	}
+
+	public void setFileSuffix(String fileSuffix) {
+		this.fileSuffix = fileSuffix;
+	}
+
+	public int getScanBuffer() {
+		return scanBuffer;
+	}
+
+	public void setScanBuffer(int scanBuffer) {
+		this.scanBuffer = scanBuffer;
+	}
+	
 }
